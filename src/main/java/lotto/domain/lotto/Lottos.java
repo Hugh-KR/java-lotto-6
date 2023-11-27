@@ -2,7 +2,6 @@ package lotto.domain.lotto;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import lotto.domain.ball.Ball;
 import lotto.domain.lotto.strategy.CreateStrategy;
 import lotto.domain.rank.Rank;
@@ -35,9 +34,7 @@ public class Lottos {
 
     public List<Rank> calculateRanks(final Lotto winningLotto, final Ball bonus) {
         return lottos.stream()
-                .map(lotto -> lotto.calculateRank(winningLotto, bonus))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
+                .map(lotto -> lotto.calculateRank(winningLotto, bonus).orElse(Rank.NONE))
                 .toList();
     }
 

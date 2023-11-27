@@ -5,6 +5,7 @@ import java.util.Optional;
 
 public enum Rank {
 
+    NONE(0,false,0L),
     THREE_MATCHED(3, false, 5_000L),
     FOUR_MATCHED(4, false, 50_000L),
     FIVE_MATCHED(5, false, 1_500_000L),
@@ -22,9 +23,10 @@ public enum Rank {
     }
 
     public static Optional<Rank> of(final int matchedCount, final boolean bonusMatched) {
-        return Arrays.stream(Rank.values())
+        return Optional.of(Arrays.stream(Rank.values())
                 .filter(rank -> rank.matched(matchedCount, bonusMatched))
-                .findFirst();
+                .findFirst()
+                .orElse(NONE));
     }
 
     private boolean matched(final int matchedCount, final boolean bonusMatched) {
@@ -33,6 +35,10 @@ public enum Rank {
 
     public long getProfit() {
         return profit;
+    }
+
+    public Rank getNone() {
+        return NONE;
     }
 
     public int getMatchedCount() {
