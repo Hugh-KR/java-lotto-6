@@ -13,6 +13,10 @@ public class LottosDto {
         this.joinedNumbers = Delimiter.joinWithComma(numbers);
     }
 
+    public List<String> getNumbers() {
+        return this.numbers;
+    }
+
     @Override
     public String toString() {
         return Delimiter.FormatWithTarget(this.joinedNumbers);
