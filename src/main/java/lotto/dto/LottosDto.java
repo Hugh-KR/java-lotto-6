@@ -19,6 +19,6 @@ public class LottosDto {
 
     @Override
     public String toString() {
-        return Delimiter.FormatWithTarget(this.joinedNumbers);
+        return Delimiter.formatWithTarget(this.joinedNumbers);
     }
 }

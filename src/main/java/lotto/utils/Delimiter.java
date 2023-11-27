@@ -23,12 +23,7 @@ public enum Delimiter {
         return String.join(COMMA.unit + SPACE.unit, target);
     }
 
-    public static String FormatWithTarget(final String target) {
+    public static String formatWithTarget(final String target) {
         return String.format(FORMAT.unit, target);
-    }
-
-
-    public static String repeatUnderBar(final int count) {
-        return BAR.unit.repeat(count);
     }
 }
