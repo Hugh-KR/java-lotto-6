@@ -11,14 +11,13 @@ public enum AmountExceptionStatus implements ExceptionStatus {
     AMOUNT_IS_OUT_OF_RANGE("10만원 까지 입력 가능합니다."),
     AMOUNT_IS_NOT_AVAILABLE("1000원 단위로 입력 가능합니다.");
 
-    private static final String ERROR_PREFIX = "[ERROR] ";
     private static final String MESSAGE_PREFIX = "구입 금액은 ";
     private static final String MESSAGE_SUFFIX = "다시 입력해 주세요.";
 
     private final String message;
 
     AmountExceptionStatus(final String message) {
-        this.message = ERROR_PREFIX + MESSAGE_PREFIX + message + MESSAGE_SUFFIX;
+        this.message = MESSAGE_PREFIX + message + MESSAGE_SUFFIX;
     }
 
     public String getMessage() {

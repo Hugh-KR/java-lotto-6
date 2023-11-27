@@ -38,7 +38,7 @@ public class Controller {
     }
 
     private Amount initAmount() {
-        return ExceptionHandler.handle(() -> {
+        return ExceptionHandler.getExceptionHandler(() -> {
             final int amount = inputView.readAmount();
             return new Amount(amount);
         });
@@ -56,14 +56,14 @@ public class Controller {
     }
 
     private Lotto initWinningNumbers() {
-        return ExceptionHandler.handle(() -> {
+        return ExceptionHandler.getExceptionHandler(() -> {
             final List<Integer> winningNumbers = inputView.readWinningNumbers();
             return new Lotto(winningNumbers);
         });
     }
 
     private WinningLotto initWinningLotto(final Lotto winningNumbers) {
-        return ExceptionHandler.handle(() -> {
+        return ExceptionHandler.getExceptionHandler(() -> {
             final int bonus = inputView.readBonus();
             return new WinningLotto(winningNumbers, BallMapper.getBall(bonus));
         });
