@@ -1,7 +1,6 @@
 package lotto.domain.rank;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 public enum Rank {
 
@@ -22,11 +21,11 @@ public enum Rank {
         this.profit = profit;
     }
 
-    public static Optional<Rank> of(final int matchedCount, final boolean bonusMatched) {
-        return Optional.of(Arrays.stream(Rank.values())
+    public static Rank of(final int matchedCount, final boolean bonusMatched) {
+        return Arrays.stream(Rank.values())
                 .filter(rank -> rank.matched(matchedCount, bonusMatched))
                 .findFirst()
-                .orElse(NONE));
+                .orElse(NONE);
     }
 
     private boolean matched(final int matchedCount, final boolean bonusMatched) {

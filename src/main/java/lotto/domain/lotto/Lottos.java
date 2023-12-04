@@ -34,7 +34,7 @@ public class Lottos {
 
     public List<Rank> calculateRanks(final Lotto winningLotto, final Ball bonus) {
         return lottos.stream()
-                .map(lotto -> lotto.calculateRank(winningLotto, bonus).orElse(Rank.NONE))
+                .map(lotto -> lotto.calculateRank(winningLotto, bonus))
                 .toList();
     }
 

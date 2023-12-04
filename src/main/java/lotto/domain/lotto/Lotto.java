@@ -1,7 +1,6 @@
 package lotto.domain.lotto;
 
 import java.util.List;
-import java.util.Optional;
 import lotto.domain.ball.Ball;
 import lotto.domain.lotto.validator.LottoValidator;
 import lotto.domain.rank.Rank;
@@ -34,7 +33,7 @@ public class Lotto {
                 .count();
     }
 
-    public Optional<Rank> calculateRank(final Lotto lotto, final Ball bonus) {
+    public Rank calculateRank(final Lotto lotto, final Ball bonus) {
         final int matchedCount = lotto.countMatches(this.balls);
         final boolean matchedBonus = this.balls.contains(bonus);
         return Rank.of(matchedCount, matchedBonus);
