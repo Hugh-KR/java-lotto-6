@@ -1,6 +1,7 @@
 package lotto.dto;
 
 import java.util.List;
+import lotto.domain.lotto.Lotto;
 import lotto.utils.Delimiter;
 
 public class LottosDto {
@@ -11,6 +12,10 @@ public class LottosDto {
     public LottosDto(final List<String> numbers) {
         this.numbers = numbers;
         this.joinedNumbers = Delimiter.joinWithComma(numbers);
+    }
+
+    public static LottosDto toDto(final Lotto lotto) {
+        return new LottosDto(lotto.parseString());
     }
 
     public List<String> getNumbers() {

@@ -79,7 +79,7 @@ public class Controller {
     }
 
     private void announceAnalysis(final Analysis analysis) {
-        final AnalysisDto analysisDto = analysis.toDto();
+        final AnalysisDto analysisDto = AnalysisDto.toDto(analysis);
         outputView.printAnalysis(analysisDto);
     }
 }

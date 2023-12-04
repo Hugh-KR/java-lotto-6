@@ -24,12 +24,8 @@ public class Lottos {
 
     public List<LottosDto> getLottosStatus() {
         return lottos.stream()
-                .map(this::toDto)
+                .map(LottosDto::toDto)
                 .toList();
-    }
-
-    private LottosDto toDto(final Lotto lotto) {
-        return new LottosDto(lotto.parseString());
     }
 
     public List<Rank> calculateRanks(final Lotto winningLotto, final Ball bonus) {

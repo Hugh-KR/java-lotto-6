@@ -1,9 +1,7 @@
 package lotto.domain.analysis;
 
-import java.util.Collections;
 import java.util.List;
 import lotto.domain.rank.Rank;
-import lotto.dto.AnalysisDto;
 
 public class Analysis {
 
@@ -20,17 +18,6 @@ public class Analysis {
                 .mapToLong(Rank::getProfit)
                 .sum();
         return (double) profit / operand;
-    }
-
-    public AnalysisDto toDto() {
-        return new AnalysisDto(
-                Collections.frequency(this.ranks, Rank.THREE_MATCHED),
-                Collections.frequency(this.ranks, Rank.FOUR_MATCHED),
-                Collections.frequency(this.ranks, Rank.FIVE_MATCHED),
-                Collections.frequency(this.ranks, Rank.FIVE_MATCHED_WITH_BONUS),
-                Collections.frequency(this.ranks, Rank.SIX_MATCHED),
-                this.profitRate
-        );
     }
 
     public List<Rank> getRanks() {
