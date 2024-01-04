@@ -6,7 +6,7 @@ import lotto.exception.custom.CustomIllegalArgumentException;
 public class ExceptionHandler {
 
     private static final ExceptionHandler EXCEPTION_HANDLER = new ExceptionHandler();
-    private static final String ERROR_PREFIX = "[ERROR] 에러 출력";
+    private static final String ERROR_PREFIX = "[ERROR]";
 
     private ExceptionHandler() {
     }
